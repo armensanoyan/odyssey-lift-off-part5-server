@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Query {
@@ -35,8 +35,8 @@ const typeDefs = gql`
     author: Author!
     "The track's illustration to display in track card or track page detail"
     thumbnail: String
-    "The track's approximate length to complete, in minutes"
-    length: Int
+    "The track's approximate length to complete, in seconds"
+    length: Int @depicated("khuy evo khi")
     "The number of modules this track contains"
     modulesCount: Int
     "The track's complete description, can be in markdown format"
@@ -45,6 +45,8 @@ const typeDefs = gql`
     numberOfViews: Int
     "The track's complete array of Modules"
     modules: [Module!]!
+    "length in seconds"
+    durationInSeconds: Int
   }
 
   "Author of a complete Track or a Module"
@@ -67,6 +69,8 @@ const typeDefs = gql`
     content: String
     "The module's video url, for video-based modules"
     videoUrl: String
+    "duration in seconds"
+    durationInSeconds: Int
   }
 `;
 
